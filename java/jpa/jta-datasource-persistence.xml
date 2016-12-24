@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <!-- 
+        @Author: Mourad HILMI
+        @Since: 2016-07-18
+    -->
+
+    <!-- **   For More Properties and Details see normal-presistence.xml  ** -->
+    <persistence-unit name="PU" transaction-type="JTA">
+        <description>Container managed JPA</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!--JNDI Datasource location-->
+        <jta-data-source>java:/MyDS</jta-data-source>
+        <properties>
+            <!--Database Tech related stuff-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+
+            <!--Remove in Prod-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        </properties>
+    </persistence-unit>
+</persistence>

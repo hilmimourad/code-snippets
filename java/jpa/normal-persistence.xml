@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <!-- @Author: Mourad HILMI
+         @Since: 2016-07-18
+    -->
+    <persistence-unit name="PU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            
+            <!--Database Technology related stuff-->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+
+            <!--Database Connection related Stuff-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/mydb?useUnicode=yes&amp;characterEncoding=UTF-8"/>
+            <property name="javax.persistence.jdbc.user" value="user" />
+            <property name="javax.persistence.jdbc.password" value="password" />
+            
+
+            <!--Debug Related Stuff-->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+
+
+            <!--Force connection pool size-->
+            <property name="connection.pool_size" value="1"/>
+            
+
+            <!--Force UTF-8 encoding-->
+            <property name="hibernate.connection.characterEncoding" value="utf-8"/>
+
+            <!--Remove this in case of production environment to prevent auto creation or update of 
+            the database (schema and all)
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+
+        </properties>
+    </persistence-unit>
+
+</persistence>
